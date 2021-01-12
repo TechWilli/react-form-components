@@ -1,6 +1,6 @@
 # React Form Components
 
-In this project I created some form inputs in React to practice some concepts as event handlers, form rules, among other things.
+In this project I created some form inputs using React to practice concepts as event handlers, form rules, among other things.
 
 Here is some of the components you will find here:
 
