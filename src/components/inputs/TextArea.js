@@ -6,7 +6,7 @@ const InputContainer = styled.div`
   margin: 0 0 2.5rem 0;
 `
 
-const InputText = styled.input`
+const TextAreaInput = styled.textarea`
   font-size: .85rem;
   width: 20rem;
   padding: .65rem;
@@ -42,7 +42,7 @@ const Label = styled.label`
   }
 `
 
-const Input = ({ type, id, value, onChange, label }) => {
+const TextArea = ({ type, id, value, onChange, label, rows }) => {
 
   const [active, setActive] = useState(false)
 
@@ -62,9 +62,10 @@ const Input = ({ type, id, value, onChange, label }) => {
       <Label htmlFor={id} active={active}>
         {label}
       </Label>
-      <InputText
+      <TextAreaInput
         type={type}
         id={id}
+        rows={rows}
         value={value}
         active={active}
         onChange={onChange}
@@ -75,4 +76,4 @@ const Input = ({ type, id, value, onChange, label }) => {
   )
 }
 
-export default Input
+export default TextArea

@@ -5,6 +5,7 @@ In this project I created some form inputs in React to practice some concepts as
 Here is some of the components you will find here:
 
 - Text input
+- TextArea
 - Select input
 - Radio input
 - Checkbox
