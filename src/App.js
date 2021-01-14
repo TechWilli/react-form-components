@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 import './App.css'
 import Input from './components/inputs/Input'
-import TextArea from './components/inputs/TextArea'
+import InputTextArea from './components/inputs/InputTextArea'
+import InputSelect from './components/inputs/InputSelect'
+import InputRadio from './components/inputs/InputRadio'
 
 const App = () => {
 
   const [formValues, setFormValues] = useState({
     nome: '',
-    comentario: ''
+    comentario: '',
+    habilidade: '',
+    especializacao: ''
   })
 
   const handleChange = ({ target }) => {
     const { id, value } = target
+
+    console.log('value', value)
     setFormValues({
       ...formValues,
       [id]: value
@@ -37,22 +43,35 @@ const App = () => {
             onChange={handleChange}
           />
 
-          <TextArea
+          <InputTextArea
             id={'comentario'}
             type={'text'}
             label={'Comentário'}
-            rows={5}
+            rows={5} // height em rows do input
             value={formValues.comentario}
             onChange={handleChange}
           />
+
+          <InputSelect
+            id={'habilidade'}
+            value={formValues.techSkill}
+            onChange={handleChange}
+          />
+
+          <InputRadio
+            id={'especializacao'}
+            value={formValues.especializacao}
+            onChange={handleChange}
+          />
+
         </form>
 
-        <div style={{ width: '320px' }}>
+        {/* <div style={{ width: '320px' }}>
           <h2 style={{ marginBottom: '1rem', textAlign: 'center' }}>Outputs</h2>
           <p>Nome: {formValues.nome}</p>
           <br />
           <p>Comentário: {formValues.comentario}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

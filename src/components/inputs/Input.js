@@ -12,7 +12,7 @@ const InputText = styled.input`
   padding: .65rem;
   background-color: #FFFFFF;
   border-radius: 5px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border: ${props => !props.active ? '3px solid transparent' : '3px solid #65A1A0'};
   box-shadow: ${props => !props.active ? '0 0 0 3px transparent' : '0 0 0 3px #B9DEDF'};
   transition: .2s;
@@ -20,6 +20,10 @@ const InputText = styled.input`
   &:focus {
     border: 3px solid #65A1A0;
     box-shadow: 0 0 0 3px #B9DEDF;
+  }
+
+  &:hover {
+    border: 3px solid #65A1A0; 
   }
 `
 
@@ -45,8 +49,6 @@ const Label = styled.label`
 const Input = ({ type, id, value, onChange, label }) => {
 
   const [active, setActive] = useState(false)
-
-  console.log('value', value, !value)
 
   useEffect(() => {
     if (value) {

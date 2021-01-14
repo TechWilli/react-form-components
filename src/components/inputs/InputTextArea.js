@@ -12,7 +12,7 @@ const TextAreaInput = styled.textarea`
   padding: .65rem;
   background-color: #FFFFFF;
   border-radius: 5px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border: ${props => !props.active ? '3px solid transparent' : '3px solid #65A1A0'};
   box-shadow: ${props => !props.active ? '0 0 0 3px transparent' : '0 0 0 3px #B9DEDF'};
   transition: .2s;
@@ -20,6 +20,10 @@ const TextAreaInput = styled.textarea`
   &:focus {
     border: 3px solid #65A1A0;
     box-shadow: 0 0 0 3px #B9DEDF;
+  }
+
+  &:hover {
+    border: 3px solid #65A1A0; 
   }
 `
 
@@ -42,11 +46,9 @@ const Label = styled.label`
   }
 `
 
-const TextArea = ({ type, id, value, onChange, label, rows }) => {
+const InputTextArea = ({ type, id, value, onChange, label, rows }) => {
 
   const [active, setActive] = useState(false)
-
-  console.log('value', value, !value)
 
   useEffect(() => {
     if (value) {
@@ -76,4 +78,4 @@ const TextArea = ({ type, id, value, onChange, label, rows }) => {
   )
 }
 
-export default TextArea
+export default InputTextArea
