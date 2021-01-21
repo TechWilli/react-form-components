@@ -4,6 +4,7 @@ import Input from './components/inputs/Input'
 import InputTextArea from './components/inputs/InputTextArea'
 import InputSelect from './components/inputs/InputSelect'
 import InputRadio from './components/inputs/InputRadio'
+import Checkbox from './components/inputs/Checkbox'
 
 const App = () => {
 
@@ -11,17 +12,28 @@ const App = () => {
     nome: '',
     comentario: '',
     habilidade: '',
-    especializacao: ''
+    especializacao: '',
+    termos: false
   })
 
   const handleChange = ({ target }) => {
-    const { id, value } = target
+    const { id, value, checked } = target
 
-    console.log('value', value)
-    setFormValues({
-      ...formValues,
-      [id]: value
-    })
+    // console.log('value', value)
+    // console.log('checked', checked)
+
+    if (id !== 'termos') {
+      setFormValues({
+        ...formValues,
+        [id]: value
+      })
+
+    } else {
+      setFormValues({
+        ...formValues,
+        [id]: checked
+      })
+    }
 
   }
 
@@ -54,13 +66,20 @@ const App = () => {
 
           <InputSelect
             id={'habilidade'}
-            value={formValues.techSkill}
+            value={formValues.habilidade}
             onChange={handleChange}
           />
 
           <InputRadio
             id={'especializacao'}
             value={formValues.especializacao}
+            onChange={handleChange}
+          />
+
+          <Checkbox
+            id={'termos'}
+            checked={formValues.termos}
+            value={'termos'}
             onChange={handleChange}
           />
 
